@@ -1,3 +1,6 @@
+const calcTests = require('./CalcTests')
+const separateTests = require('./SeparateTests')
+
 const openSymb='(';
 const closeSymb=')';
 
@@ -46,17 +49,24 @@ for(let i=0;i<str.length;i++){
 }
 
 function calc(str){
+    let value=eval(str);
+    if(value.toString().match(/\D/)){
+        console.log("err")
+        return null;
+    }
     return eval(str)
 }
-
+console.log(calc("1/0"))
+console.log("calcTests",calcTests(calc));
+console.log("separateTests",separateTests(separateBlock))
 
 
 let str='1+(4+9)*-(6+(-1))';
 // let str='(6+(-1))';
 
-console.log("eval",eval(str))
-try {
-    console.log("compile",compile(str))
-} catch (err) {
-  console.log("catch smth",err)
-}
+// console.log("eval",eval(str))
+// try {
+//     console.log("compile",compile(str))
+// } catch (err) {
+//   console.log("catch smth",err)
+// }
