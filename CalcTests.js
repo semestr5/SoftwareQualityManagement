@@ -16,11 +16,25 @@ function testCalcPositiveValuesMulti(calc){
     return false;
 }
 
+function testnullData(calc){
+    if(calc(undefined)==undefined)return true;
+    return false;
+}
+
+function testDataDiffOfString(calc){
+    if(calc({})==undefined)return true;
+    return false;
+}
+
+
 module.exports = function calcTests(calc){
 return {
     testCalcPositiveValuesSumm:testCalcPositiveValuesSumm(calc),
     testCalcPositiveValuesSubstract:testCalcPositiveValuesSubstract(calc),
     testCalcPositiveValuesMulti:testCalcPositiveValuesMulti(calc),
+    testnullData:testnullData(calc),
+    testDataDiffOfString:testDataDiffOfString(calc),
+
 }
 
 }
